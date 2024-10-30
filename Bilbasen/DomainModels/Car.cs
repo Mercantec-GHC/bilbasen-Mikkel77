@@ -38,3 +38,12 @@ public class Car
 
 
 }
+//construktor and inheretance from car to motercykel 
+public class Motercykel : Car
+{
+    public Motercykel(string brand, string model, int year, string color, int milageKm, string fuelType, int weightKG, string carClass, int horsepower)
+    : base(brand, model, year, color, milageKm, fuelType, weightKG, carClass, horsepower)
+    {
+    }
+
+}

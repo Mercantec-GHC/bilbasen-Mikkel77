@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 
 namespace Bilbasen
 {
@@ -8,6 +9,7 @@ namespace Bilbasen
     {
         static void Main(string[] args)
         {
+#pragma warning disable IDE0090 // Use 'new(...)'
             List<Car> cars = new List<Car>
             {
                 // Set 1
@@ -129,8 +131,11 @@ namespace Bilbasen
                 new Car("Nissan", "Kicks", 2021, "Green", 10000, "Gasoline", 1300, "Crossover", 122),
                 new Car("Kia", "Seltos", 2020, "White", 15000, "Gasoline", 1400, "SUV", 146),
                 new Car("Volkswagen", "Passat", 2021, "Blue", 8000, "Diesel", 1700, "Sedan", 174),
+                new Motercykel("Harley-Davidson", "Street 750", 2021, "Black", 5000, "Gasoline", 500, "Cruiser", 47),
+
 
             };
+#pragma warning restore IDE0090 // Use 'new(...)'
 
 
             var firstCars = cars.Where(car => car.GetBrand() == "Ford").ToList();
@@ -162,6 +167,12 @@ namespace Bilbasen
             foreach (var car in carsin1980to1999)
             {
                 Console.WriteLine($"{car.GetYear()} {car.GetBrand()} {car.GetModel()}  Color: {car.GetColor()}, Mileage: {car.GetMilageKm()} km, Fuel Type: {car.GetFuelType()}, Weight: {car.GetWeightKG()} kg, Class: {car.GetCarClass()}, Horsepower: {car.GetHorsepower()}");
+            }
+            foreach (var motercykel in  cars)
+            {
+                Console.WriteLine($"{motercykel.GetYear()} {motercykel.GetBrand()} {motercykel.GetModel()}  Color: {motercykel.GetColor()}, Mileage: {motercykel.GetMilageKm()} km, Fuel Type: {motercykel.GetFuelType()}, Weight: {motercykel.GetWeightKG()} kg, Class: {motercykel.GetCarClass()}, Horsepower: {motercykel.GetHorsepower()}");
+
+
             }
         }
     }
